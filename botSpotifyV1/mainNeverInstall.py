@@ -37,13 +37,13 @@ def main():
     id=[]
     passw=[]
 
-    result= db.findby2("accountmanager","acc_estado",4,"pais","COL")
+    result= db.findby2("accountmanager","acc_estado",5,"pais","US")
 
     for elem in result:
         email= (elem["email"])
         id=(elem["_id"])
         passw =(elem["pass"])
-        db.updateOne("accountmanager",id,"pais","enproceso")
+        #db.updateOne("accountmanager",id,"pais","enproceso")
         #for elemid in id:
         #    db.updateOne("accountmanager",elemid,"creacionlistasentrenamiento",2)
         db.cerrarConexion()
@@ -121,6 +121,7 @@ def main():
         iniciarSpotify (email,passw)
         db.iniciarDB()
         db.updateOne("accountmanager",id,"pais","US")
+        db.updateOne("accountmanager",id,"acc_estado",10)
         db.cerrarConexion()
 
     except Exception as e:
